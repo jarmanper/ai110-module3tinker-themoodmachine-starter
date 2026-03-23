@@ -68,6 +68,12 @@ During this lab you will:
 
 ---
 
+## Instructor Notes
+
+The core concept here is that models don't understand language — they match patterns, and the patterns they can match are bounded by the data and rules you give them. Students are most likely to struggle when the ML model reports 100% accuracy and they take it at face value; the leap from "it got everything right" to "it memorized the training data" is not obvious without prompting. AI tools like Copilot were genuinely helpful for brainstorming edge-case posts and explaining why a specific word triggered a wrong score, but they tend to propose fixes before students have had a chance to diagnose the failure themselves, which shortcuts the most valuable part of the exercise. If a student is stuck on why a post is mislabeled, a useful nudge is to ask them to run `explain()` on it and read the output aloud — once they see which single word drove the decision, they usually figure out the problem on their own. The sarcasm case ("I absolutely love sitting in traffic") is the best teaching moment in the lab: it's a clean example of a model being confidently wrong for a reason that no amount of word-list tuning can fix, which sets up the honest conversation about what rule-based systems fundamentally cannot do.
+
+---
+
 ## Activity Summary
 
 ### What was built
