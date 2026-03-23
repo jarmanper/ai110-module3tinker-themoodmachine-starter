@@ -23,6 +23,18 @@ POSITIVE_WORDS = [
     "chill",
     "relaxed",
     "amazing",
+    # slang positives
+    "sick",
+    "fire",
+    "lit",
+    "slapped",
+    "vibing",
+    # missing emotional words
+    "proud",
+    "hopeful",
+    "grateful",
+    "pumped",
+    "thrilled",
 ]
 
 NEGATIVE_WORDS = [
@@ -36,6 +48,13 @@ NEGATIVE_WORDS = [
     "stressed",
     "hate",
     "boring",
+    # missing emotional words
+    "exhausted",
+    "drained",
+    "anxious",
+    "rough",
+    "miserable",
+    "overwhelmed",
 ]
 
 # ---------------------------------------------------------------------
