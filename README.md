@@ -65,3 +65,47 @@ During this lab you will:
 - When debugging, print tokens, scores, or intermediate choices.
 - Ask an AI assistant to help create edge case posts or unusual wording.
 - Try examples that mislead or confuse your model. Failure cases teach you the most.
+
+---
+
+## Activity Summary
+
+### What was built
+
+A two-version mood classifier that labels short text as `positive`, `negative`, `neutral`, or `mixed`.
+
+The rule-based version in `mood_analyzer.py` was implemented from scratch:
+
+- `preprocess()` lowercases text, strips punctuation (keeping apostrophes for contractions), and tokenizes on whitespace.
+- `score_text()` loops over tokens, adding +1 for positive words and -1 for negative words, with negation handling — if a token like `not` or `never` precedes a sentiment word, the score is flipped.
+- `predict_label()` checks for both positive and negative hits in the same post to catch mixed sentiment, then falls back to the numeric score.
+
+The word lists in `dataset.py` were expanded beyond the starter set to include slang positives (`sick`, `fire`, `lit`, `slapped`) and missing emotional words (`exhausted`, `anxious`, `proud`, `overwhelmed`).
+
+### Dataset
+
+`SAMPLE_POSTS` was expanded from 6 to 21 labeled examples. New posts were written to include:
+
+- Casual slang and informal tone ("ngl today actually slapped", "lowkey stressed")
+- Sarcasm ("I absolutely love sitting in traffic for 2 hours")
+- Mixed emotions ("exhausted but so proud of myself")
+- Ambiguous phrasing ("everything's fine I'm fine we're all fine")
+
+### Evaluation results
+
+| Model | Accuracy on SAMPLE_POSTS |
+|---|---|
+| Rule-based | 11/21 (52%) |
+| ML (logistic regression) | 21/21 (100%) |
+
+The ML model's 100% is training accuracy on the same 21 examples it was trained on — memorization, not generalization. The rule-based failures were almost entirely due to vocabulary gaps and one case of undetectable sarcasm.
+
+### Key failure patterns identified
+
+- **Sarcasm:** `"I absolutely love sitting in traffic for 2 hours"` → predicted `positive` because `love` dominates. No word-list approach can detect this.
+- **Missing vocabulary:** `"woke up late missed the bus and it is only Monday"` → predicted `neutral` because no words matched any list, despite a clearly negative tone.
+- **Colloquial negation:** `"yeah no that was not it"` → predicted `neutral`. The phrase is idiomatic — `not it` is a dismissal, but `it` has no sentiment value.
+
+### Takeaway
+
+Rule-based systems are transparent and debuggable but brittle — every gap in the vocabulary is a gap in coverage. The ML model handled patterns the rules couldn't, but its accuracy number is misleading at this dataset size. Both approaches require careful evaluation beyond a single accuracy score.
