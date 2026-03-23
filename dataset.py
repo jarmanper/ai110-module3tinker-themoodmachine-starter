@@ -50,6 +50,21 @@ SAMPLE_POSTS = [
     "This is fine",
     "So excited for the weekend",
     "I am not happy about this",
+    "ngl today actually slapped 😭",
+    "I absolutely love sitting in traffic for 2 hours",
+    "lowkey stressed but the coffee is hitting rn ☕",
+    "vibes are off today idk",
+    "just found out I passed no cap I was literally shaking 😭😭",
+    "everything's fine I'm fine we're all fine",
+    "this week has been a lot but I'm still here 🙃",
+    "bro why does everything happen at once 💀",
+    "not gonna lie I needed that 😌",
+    "could be worse I guess",
+    "I hate that I actually enjoyed that 💀",
+    "woke up late missed the bus and it is only Monday",
+    "honestly kind of proud of myself today :)",
+    "this is giving me anxiety but also I kind of want to do it",
+    "yeah no that was not it 😭",
 ]
 
 # Human labels for each post above.
@@ -65,6 +80,21 @@ TRUE_LABELS = [
     "neutral",   # "This is fine"
     "positive",  # "So excited for the weekend"
     "negative",  # "I am not happy about this"
+    "positive",  # "ngl today actually slapped"
+    "negative",  # "I absolutely love sitting in traffic for 2 hours" — sarcasm
+    "mixed",     # "lowkey stressed but the coffee is hitting rn"
+    "neutral",   # "vibes are off today idk" — vague, hard to pin down
+    "positive",  # "just found out I passed no cap I was literally shaking" — overwhelmed relief
+    "neutral",   # "everything's fine I'm fine we're all fine" — edge case: possibly sarcastic
+    "mixed",     # "this week has been a lot but I'm still here"
+    "negative",  # "bro why does everything happen at once"
+    "positive",  # "not gonna lie I needed that"
+    "neutral",   # "could be worse I guess" — resigned, hard to call
+    "mixed",     # "I hate that I actually enjoyed that"
+    "negative",  # "woke up late missed the bus and it is only Monday"
+    "positive",  # "honestly kind of proud of myself today"
+    "mixed",     # "this is giving me anxiety but also I kind of want to do it"
+    "negative",  # "yeah no that was not it"
 ]
 
 # TODO: Add 5-10 more posts and labels.
